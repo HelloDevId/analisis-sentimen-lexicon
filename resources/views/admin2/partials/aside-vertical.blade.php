@@ -50,7 +50,7 @@
                     <span class="hide-menu">Menu</span>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link {{ request()->is('sentimen') ? 'active' : '' }}" href="/sentiment" aria-expanded="false">
+                    <a class="sidebar-link {{ request()->is('sentiment') ? 'active' : '' }}" href="/sentiment" aria-expanded="false">
                         <span>
                             <i class="ti ti-message-dots"></i>
                         </span>
