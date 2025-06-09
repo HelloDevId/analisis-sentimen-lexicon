@@ -24,8 +24,7 @@
                     </nav>
                     <h2 class="mb-0 fw-bolder fs-8">Sentimen</h2>
                 </div>
-                <div class="col-lg-4 col-md-6 d-none d-md-flex align-items-center justify-content-end">
-
+                <div class="col-lg-4 col-md-6 d-flex align-items-center justify-content-end mt-3 mt-md-0">
                     <a data-bs-toggle="modal" data-bs-target="#importModal"
                         class="btn btn-success d-flex align-items-center ms-2">
                         <i class="ti ti-plus me-1"></i>
