@@ -6,6 +6,8 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PredictController;
 use App\Http\Controllers\DashboardController;
 
+use App\Http\Controllers\Landing\IndexController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,9 +19,8 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
-Route::get('/', function () {
-    return redirect()->route('login');
-});
+Route::get('/', [IndexController::class, 'index'])->name('landing.index');
+Route::post('landing/predict', [IndexController::class, 'prediction'])->name('landing.predict');
 
 # Auth Controller
 Route::get('login', [AuthController::class, 'showLogin'])->name('login');
