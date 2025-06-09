@@ -97,6 +97,11 @@ class LexiconHelper
     // Kata/frasa negatif khusus kampus dan umum, termasuk pola negasi dan keluhan
     public static $negatives = [
         // Umum
+        "malas",
+        "bosan",
+        "maling",
+        "penipuan",
+        "pencurian",
         "jelek",
         "kotor",
         "buruk",

@@ -37,6 +37,7 @@
     <div class="preloader">
         <img src="{{ asset('admin2/assets/images/logos/preloader.svg') }}" alt="loader" class="lds-ripple img-fluid">
     </div>
+
     <div id="main-wrapper">
         <!-- Sidebar Start -->
         @include('admin2.partials.aside-horizontal')

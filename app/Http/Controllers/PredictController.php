@@ -37,24 +37,4 @@ class PredictController extends Controller
             'cleaned' => $result['cleaned'],
         ]);
     }
-
-    // public function predict(Request $request)
-    // {
-    //     $request->validate([
-    //         'statement' => 'required|string|max:1000',
-    //     ], [
-    //         'statement.required' => 'Pernyataan wajib diisi',
-    //         'statement.string' => 'Pernyataan harus berupa teks',
-    //         'statement.max' => 'Pernyataan maksimal 1000 karakter',
-    //     ]);
-
-    //     $text = $request->input('statement');
-    //     $result = LexiconHelper::analyze($text);
-    //     return view('prediction', [
-    //         'input' => $text,
-    //         'cleaned' => $result['cleaned'],
-    //         'score' => $result['score'],
-    //         'label' => $result['label']
-    //     ]);
-    // }
 }
