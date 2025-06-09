@@ -42,7 +42,7 @@
         <div class="datatables">
             <div class="card">
                 <div class="card-body">
-                    @if ($errors->any())
+                    {{-- @if ($errors->any())
                         <div class="alert alert-danger alert-dismissible fade show">
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
@@ -56,6 +56,11 @@
                             @foreach ($errors->all() as $error)
                                 <li>{{ $nomer++ }}. {{ $error }}</li>
                             @endforeach
+                        </div>
+                    @endif --}}
+                    @if (session('import_msg'))
+                        <div class="alert alert-info mt-2">
+                            {!! session('import_msg') !!}
                         </div>
                     @endif
                     <div class="table-responsive">
@@ -94,8 +99,7 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
-                                <form action="/sentiment/import" method="POST" enctype="multipart/form-data"
-                                    id="importForm">
+                                <form action="/sentiment/import" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="modal-body">
                                         <div class="form-group mb-3">
@@ -166,7 +170,7 @@
     <script src="{{ asset('admin2/buttons/2.4.2/js/buttons.print.min.js') }}"></script>
     <script src="{{ asset('admin2/assets/js/datatable/datatable-advanced.init.js') }}"></script>
 
-    <script>
+    {{-- <script>
         $('#importModal form').on('submit', function(e) {
             e.preventDefault();
             let formData = new FormData(this);
@@ -217,5 +221,5 @@
                 }
             });
         });
-    </script>
+    </script> --}}
 @endpush
