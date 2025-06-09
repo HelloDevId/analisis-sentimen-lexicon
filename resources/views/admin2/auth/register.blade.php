@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr" data-bs-theme="light" data-color-theme="Blue_Theme" data-layout="vertical">
 
 <head>
@@ -15,7 +15,7 @@
     <link rel="stylesheet"
         href="https://bootstrapdemos.wrappixel.com/flexy/dist/assets/libs/sweetalert2/dist/sweetalert2.min.css">
 
-    <title>Login - Lexicon Analisis</title>
+    <title>Register - Lexicon Analisis</title>
 </head>
 
 <body>
@@ -72,11 +72,10 @@
                                     <p
                                         class="mb-0 fs-4 px-3 d-inline-block bg-body text-dark z-index-5 position-relative">
                                         or sign
-                                        in
+                                        Up
                                         with</p>
                                     <span
                                         class="border-top w-100 position-absolute top-50 start-50 translate-middle"></span>
-
                                 </div>
                                 @if ($errors->any())
                                     <div class="alert alert-danger alert-dismissible fade show">
@@ -91,11 +90,16 @@
                                         @endforeach
                                     </div>
                                 @endif
-                                <form action="/login" method="post">
+                                <form method="POST" action="{{ route('register.post') }}">
                                     @csrf
-                                    @method('post')
+                                    @method('POST')
                                     <div class="mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">Email</label>
+                                        <label for="exampleInputEmail1" class="form-label">Name</label>
+                                        <input type="text" name="name" class="form-control" id="exampleInputtext"
+                                            aria-describedby="textHelp">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Email address</label>
                                         <input type="email" name="email" class="form-control"
                                             id="exampleInputEmail1" aria-describedby="emailHelp">
                                     </div>
@@ -104,24 +108,17 @@
                                         <input type="password" name="password" class="form-control"
                                             id="exampleInputPassword1">
                                     </div>
-                                    <div class="d-flex align-items-center justify-content-between mb-4">
-                                        <div class="form-check">
-                                            <input class="form-check-input primary" type="checkbox" value=""
-                                                id="flexCheckChecked" checked="">
-                                            <label class="form-check-label text-dark fs-3" for="flexCheckChecked">
-                                                Remeber this Device
-                                            </label>
-                                        </div>
-                                        <a class="text-primary fw-medium fs-3"
-                                            href="authentication-forgot-password.html">Forgot Password ?</a>
+                                    <div class="mb-4">
+                                        <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+                                        <input type="password" name="password_confirmation" class="form-control"
+                                            id="exampleInputPassword1">
                                     </div>
                                     <button type="submit" class="btn btn-primary w-100 py-8 mb-4 rounded-2">Sign
-                                        In</button>
-                                    <div class="d-flex align-items-center justify-content-center">
-                                        <p class="fs-4 mb-0 fw-medium">New to spike?</p>
-                                        <a class="text-primary fw-medium ms-2"
-                                            href="/register">Create an
-                                            account</a>
+                                        Up</button>
+                                    <div class="d-flex align-items-center">
+                                        <p class="fs-4 mb-0 text-dark">Already have an Account?</p>
+                                        <a class="text-primary fw-medium ms-2" href="/login">Sign
+                                            In</a>
                                     </div>
                                 </form>
                             </div>

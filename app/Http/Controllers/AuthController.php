@@ -41,7 +41,8 @@ class AuthController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:6|confirmed',
+            'password' => 'required|min:6',
+            'password_confirmation' => 'required|same:password',
         ], [
             'name.required' => 'Nama wajib diisi',
             'email.required' => 'Email wajib diisi',
@@ -49,7 +50,8 @@ class AuthController extends Controller
             'email.unique' => 'Email sudah terdaftar',
             'password.required' => 'Password wajib diisi',
             'password.min' => 'Password minimal 6 karakter',
-            'password.confirmed' => 'Konfirmasi password tidak cocok',
+            'password_confirmation.required' => 'Konfirmasi password wajib diisi',
+            'password_confirmation.same' => 'Konfirmasi password tidak cocok',
         ]);
 
         $user = User::create([
