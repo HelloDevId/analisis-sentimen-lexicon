@@ -15,7 +15,7 @@
     <link rel="stylesheet"
         href="https://bootstrapdemos.wrappixel.com/flexy/dist/assets/libs/sweetalert2/dist/sweetalert2.min.css">
 
-    <title>Login - Visualisasi Sentimen</title>
+    <title>Login - Lexicon Analisis</title>
 </head>
 
 <body>
@@ -33,7 +33,7 @@
                                 alt="Logo-Dark">
                             <img src="{{ asset('admin2/assets/images/logos/light-logo.svg') }}" class="light-logo"
                                 alt="Logo-light"> --}}
-                                <img src="{{ asset('admin2/assets/images/logos/dark-logo.svg') }}" class="dark-logo"
+                            <img src="{{ asset('admin2/assets/images/logos/dark-logo.svg') }}" class="dark-logo"
                                 alt="Logo-Dark">
                             <img src="{{ asset('admin2/assets/images/logos/light-logo.svg') }}" class="light-logo"
                                 alt="Logo-light">

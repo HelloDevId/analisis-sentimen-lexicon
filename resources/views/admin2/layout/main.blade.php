@@ -19,7 +19,7 @@
 
     @stack('style')
 
-    <title>@yield('title') Visualisasi Data</title>
+    <title>@yield('title') Lexicon Analisis</title>
 </head>
 
 <body>
