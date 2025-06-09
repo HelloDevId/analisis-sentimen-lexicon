@@ -1,0 +1,192 @@
+<?php
+
+namespace App\Helpers;
+
+class LexiconHelper
+{
+    public static $positives = [
+        "bagus",
+        "mudah",
+        "cepat",
+        "ramah",
+        "praktis",
+        "nyaman",
+        "promo",
+        "diskon",
+        "enak",
+        "mantap",
+        "bersih",
+        "profesional",
+        "terbaik",
+        "menyenangkan",
+        "hebat",
+        "puas",
+        "cocok",
+        "bantu",
+        "aman",
+        "murah",
+        "luar biasa",
+        "tepat waktu",
+        "memuaskan",
+        "rekomendasi",
+        "memudahkan",
+        "responsif",
+        "suka",
+        "keren",
+        "top",
+        "ok",
+        "oke",
+        "helpful",
+        "percaya",
+        "memadai",
+        "solutif",
+        "rapi",
+        "bagus sekali",
+        "super",
+        "pengertian",
+        "sopan",
+        "gratis",
+        "amanah",
+        "disiplin",
+        "fast respon",
+        "recommended",
+        "mantul",
+        "good",
+        "great",
+        "amazing",
+        "nice",
+        "friendly",
+        "trusted",
+        "worth",
+        "memuaskan sekali",
+        "terpercaya",
+        "memuaskan",
+        "enjoy",
+        "puas banget",
+        "bisa diandalkan",
+        "good service",
+        "service bagus",
+        "driver ramah",
+        "pengiriman cepat",
+        "harga terjangkau",
+        "solusi",
+        "penolong",
+        "seru",
+        "fleksibel",
+        "banyak pilihan",
+        "fitur lengkap",
+        "update cepat",
+        "bersahabat"
+    ];
+
+    public static $negatives = [
+        "error",
+        "lama",
+        "susah",
+        "mahal",
+        "buruk",
+        "jelek",
+        "parah",
+        "hilang",
+        "lambat",
+        "tidak",
+        "batal",
+        "kurang",
+        "bising",
+        "kotor",
+        "dingin",
+        "marah",
+        "kecewa",
+        "salah",
+        "cancel",
+        "gagal",
+        "ribet",
+        "penipuan",
+        "tidak ramah",
+        "mengecewakan",
+        "bohong",
+        "lelet",
+        "tidak sesuai",
+        "tidak bisa",
+        "payah",
+        "kurang baik",
+        "tidak puas",
+        "tidak sopan",
+        "bikin kesel",
+        "kapok",
+        "tidak responsif",
+        "sangat buruk",
+        "menunda",
+        "tidak datang",
+        "driver kasar",
+        "driver telat",
+        "driver tidak sopan",
+        "driver tidak jujur",
+        "driver tidak paham",
+        "pelayanan buruk",
+        "pelayanan lambat",
+        "batal sepihak",
+        "fitur error",
+        "aplikasi crash",
+        "menyesal",
+        "kacau",
+        "tidak tepat waktu",
+        "tidak profesional",
+        "parah banget",
+        "malas",
+        "tidak respons",
+        "delay",
+        "wait terlalu lama",
+        "tidak nyaman",
+        "susah login",
+        "tidak update",
+        "sering error",
+        "aplikasi lambat",
+        "tidak aman",
+        "tidak jelas",
+        "tidak rekomen",
+        "tidak recommended",
+        "driver ugal-ugalan",
+        "driver tidak bisa baca map",
+        "driver nyasar",
+        "penjemputan lama",
+        "tidak selesai",
+        "tidak bantu",
+        "driver tidak datang",
+        "driver hilang",
+        "tidak dapat promo",
+        "harga mahal",
+        "kebersihan kurang",
+        "makanan dingin",
+        "makanan basi",
+        "tidak enak",
+        "driver marah",
+        "tidak ramah",
+        "sangat mengecewakan",
+        "makanannya jelek",
+        "parah sekali"
+    ];
+
+    public static function clean($text)
+    {
+        $text = strtolower($text);
+        $text = preg_replace('/[^a-z0-9\s]/', '', $text);
+        $text = preg_replace('/\s+/', ' ', $text);
+        return trim($text);
+    }
+
+    public static function analyze($text)
+    {
+        $text_clean = self::clean($text);
+        $tokens = explode(' ', $text_clean);
+        $pos = 0;
+        $neg = 0;
+        foreach ($tokens as $token) {
+            if (in_array($token, self::$positives)) $pos++;
+            if (in_array($token, self::$negatives)) $neg++;
+        }
+        if ($pos > $neg) return ['score' => $pos - $neg, 'label' => 'positive', 'cleaned' => $text_clean];
+        if ($neg > $pos) return ['score' => $pos - $neg, 'label' => 'negative', 'cleaned' => $text_clean];
+        return ['score' => 0, 'label' => 'neutral', 'cleaned' => $text_clean];
+    }
+}
